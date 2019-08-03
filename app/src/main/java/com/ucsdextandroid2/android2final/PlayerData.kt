@@ -9,5 +9,10 @@ data class PlayerData(
     @field:SerializedName("kills") var kills: Int,
     @field:SerializedName("assists") var assists: Int,
     @field:SerializedName("wins") var wins: Int,
-    @field:SerializedName("losses") var losses: Int
-): Parcelable
+    @field:SerializedName("losses") var losses: Int,
+    var username: String?
+): Parcelable {
+    fun toRecentPlayerData(name: String, y: Any): RecentPlayerData {
+        return RecentPlayerData(name, kills, assists, wins, losses)
+    }
+}
